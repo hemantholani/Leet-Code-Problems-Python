@@ -5,8 +5,20 @@ Do not allocate extra space for another array, you must do this by modifying the
 
 The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 '''
-class Solution:
-    def removeElement(self, nums: 'List[int]', val: 'int') -> 'int':
-        while val in nums:
-            nums.remove(val)
-        return(len(nums))
+class Solution(object):
+    def removeElement(self, nums, val):
+        """
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        j = 0
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[j] = nums[i]
+                j = j + 1
+        return j
+        
+            
